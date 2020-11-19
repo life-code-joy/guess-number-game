@@ -53,26 +53,14 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent = highscore;
     }
 
-
-    //WEN GUESS IS TOO HIGH
-  } else if (guess > secretNumber) {
+    // WHEN GUESS IS WRONG
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = ' 🛩 Too high'
+      document.querySelector('.message').textContent = guess > secretNumber ? ' 🛩 Too high' : ' ⏚ Too low';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
       document.querySelector('.message').textContent = " 😛 You lost the game. 🖕 Try again!"
-      document.querySelector('.score').textContent = 0;
-    }
-
-    //IF GUESS IS TOO LOW
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = ' ⏚ Too low'
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = " 😛 You lost🖕 Try again!"
       document.querySelector('.score').textContent = 0;
     }
   }
