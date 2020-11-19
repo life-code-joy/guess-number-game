@@ -17,6 +17,8 @@ document.querySelector('.check').addEventListener('click', function(){
   const guess = Number(document.querySelector('.guess').value);
   console.log(typeof guess, guess);
 
+  
+
 
   //WHEN THERE IS NO INPUT
   if(!guess) {
@@ -24,15 +26,22 @@ document.querySelector('.check').addEventListener('click', function(){
 
     //WHEN PLAYER WINS
   } else if(guess === secretNumber) {
-    document.querySelector('.message').textContent = 'Yay correct number!!';
+    document.querySelector('.message').textContent = '😁 Yay correct number!!';
+    document.querySelector('.number').textContent = secretNumber;
+    //change screen BGC
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    //change the number width
+    document.querySelector('.number').style.width = '30rem';
+
+
     //WEN GUESS IS TOO HIGH
   } else if(guess > secretNumber) {
     if(score > 1){
-      document.querySelector('.message').textContent = 'Too high'
+      document.querySelector('.message').textContent = ' 🛩 Too high'
     score --;
     document.querySelector('.score').textContent = score;
     } else {
-      document.querySelector('.message').textContent = "You lost the game. 🖕 Try again!"
+      document.querySelector('.message').textContent = " 😛 You lost the game. 🖕 Try again!"
       document.querySelector('.score').textContent = 0;
     }
     
@@ -43,7 +52,7 @@ document.querySelector('.check').addEventListener('click', function(){
     score --;
     document.querySelector('.score').textContent = score;
     } else {
-      document.querySelector('.message').textContent = "You lost the game. 🖕 Try again!"
+      document.querySelector('.message').textContent = " 😛 You lost🖕 Try again!"
       document.querySelector('.score').textContent = 0;
     }
   } 
